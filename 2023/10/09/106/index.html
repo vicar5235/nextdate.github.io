@@ -16,24 +16,31 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="哈哈二级标题正文内容">
+    <meta name="description" content="前言当黑群晖一切都配置好以后，理论上黑群晖和白群晖都一样稳定，但对于喜欢折腾的人就不是了，DSM 系统更新非常频繁，设置后台经常有 DSM 的更新提示，如果手贱一个不小心点了升级系统，但引导没有跟上，就会带来不必要的麻烦，今天讲讲如何屏蔽 DSM 7.1 的更新提示。 演示环境 群晖版本 DSM 7.1-42661 Update3 操作系统 macOS 13.1 浏览器 Google Chrome">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这是一个测试文章 - hello test">
-<meta property="og:url" content="http://example.com/2023/10/09/hello-test/index.html">
+<meta property="og:title" content="DSM 7.1 屏蔽 HOST 实现禁止自动更新">
+<meta property="og:url" content="http://example.com/2023/10/09/106/index.html">
 <meta property="og:site_name" content="Hexo 站点标题">
-<meta property="og:description" content="哈哈二级标题正文内容">
+<meta property="og:description" content="前言当黑群晖一切都配置好以后，理论上黑群晖和白群晖都一样稳定，但对于喜欢折腾的人就不是了，DSM 系统更新非常频繁，设置后台经常有 DSM 的更新提示，如果手贱一个不小心点了升级系统，但引导没有跟上，就会带来不必要的麻烦，今天讲讲如何屏蔽 DSM 7.1 的更新提示。 演示环境 群晖版本 DSM 7.1-42661 Update3 操作系统 macOS 13.1 浏览器 Google Chrome">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tc.mspace.cc/images/2023/01/02/202301021059730.png">
+<meta property="og:image" content="https://tc.mspace.cc/images/2023/01/02/202301021101772.png">
+<meta property="og:image" content="https://tc.mspace.cc/images/2023/01/02/202301021104928.png">
+<meta property="og:image" content="https://tc.mspace.cc/images/2023/01/02/202301021107226.png">
+<meta property="og:image" content="https://tc.mspace.cc/images/2023/01/02/202301021110648.png">
+<meta property="og:image" content="https://tc.mspace.cc/images/2023/01/02/202301021112320.png">
 <meta property="article:published_time" content="2023-10-09T14:09:35.000Z">
-<meta property="article:modified_time" content="2023-10-09T14:12:45.731Z">
+<meta property="article:modified_time" content="2023-10-10T08:59:27.517Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="测试标签">
 <meta property="article:tag" content="测试">
 <meta property="article:tag" content="1">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tc.mspace.cc/images/2023/01/02/202301021059730.png">
   
   
   
-  <title>这是一个测试文章 - hello test - Hexo 站点标题</title>
+  <title>DSM 7.1 屏蔽 HOST 实现禁止自动更新 - Hexo 站点标题</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="这是一个测试文章 - hello test"></span>
+            <span id="subtitle" data-typed-text="DSM 7.1 屏蔽 HOST 实现禁止自动更新"></span>
           
         </div>
 
@@ -222,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10 字
+          643 字
         
       </span>
     
@@ -233,7 +240,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -270,12 +277,35 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">这是一个测试文章 - hello test</h1>
+            <h1 id="seo-header">DSM 7.1 屏蔽 HOST 实现禁止自动更新</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="哈哈"><a href="#哈哈" class="headerlink" title="哈哈"></a>哈哈</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>正文内容</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当黑群晖一切都配置好以后，理论上黑群晖和白群晖都一样稳定，但对于喜欢折腾的人就不是了，DSM 系统更新非常频繁，设置后台经常有 DSM 的更新提示，如果手贱一个不小心点了升级系统，但引导没有跟上，就会带来不必要的麻烦，今天讲讲如何屏蔽 DSM 7.1 的更新提示。</p>
+<h2 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h2><ol>
+<li>群晖版本 DSM 7.1-42661 Update3</li>
+<li>操作系统 macOS 13.1</li>
+<li>浏览器 Google Chrome</li>
+<li>SSH 工具 FinalShell 3.9.7.6</li>
+</ol>
+<h2 id="开启-SSH-并连接修改"><a href="#开启-SSH-并连接修改" class="headerlink" title="开启 SSH 并连接修改"></a>开启 SSH 并连接修改</h2><p>打开群晖的控制面板，找到终端机和 SNMP 界面，将启动 SSH 勾选上<br><img src="https://tc.mspace.cc/images/2023/01/02/202301021059730.png" srcset="/img/loading.gif" lazyload></p>
+<p>运行 SSH 工具，这里用 FinalShell 做演示<br><img src="https://tc.mspace.cc/images/2023/01/02/202301021101772.png" srcset="/img/loading.gif" lazyload></p>
+<p>配置好后连接群晖，输入 <code>sudo -i</code> 并输入群晖密码来切换 root 账户（密码不可见）<br><img src="https://tc.mspace.cc/images/2023/01/02/202301021104928.png" srcset="/img/loading.gif" lazyload></p>
+<p>输入以下代码来访问 HOSTS 文件，按 <code>i</code> 切换编辑模式</p>
+<pre><code class="hljs">vim /etc/hosts
+</code></pre>
+<p><img src="https://tc.mspace.cc/images/2023/01/02/202301021107226.png" srcset="/img/loading.gif" lazyload></p>
+<p>复制并填入以下代码，依次按下 <code>esc</code> + <code>:</code> ，输入 <code>wq</code> 保存修改</p>
+<pre><code class="hljs">127.0.0.1 update.synology.com
+127.0.0.1 update7.synology.com
+127.0.0.1 autoupdate7.synology.com
+127.0.0.1 autoupdate7.synology.cn
+</code></pre>
+<p>操作无误的话此时应该会从刚刚的 HOST 文件切换出来<br><img src="https://tc.mspace.cc/images/2023/01/02/202301021110648.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="验证屏蔽更新"><a href="#验证屏蔽更新" class="headerlink" title="验证屏蔽更新"></a>验证屏蔽更新</h2><p>重新打开群晖的控制，找到更新和还原，如果状态显示如图就表示屏蔽成功了<br><img src="https://tc.mspace.cc/images/2023/01/02/202301021112320.png" srcset="/img/loading.gif" lazyload></p>
+<p>此操作并不会影响群晖官方的套件升级</p>
+<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>本文演示的方法是通过 Host 屏蔽域名实现禁止更新，你也可以通过 Openwrt 的网址黑名单等其他方式屏蔽域名实现一样的效果</p>
 
                 
               </div>
@@ -325,8 +355,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>这是一个测试文章 - hello test</div>
-      <div>http://example.com/2023/10/09/hello-test/</div>
+      <div>DSM 7.1 屏蔽 HOST 实现禁止自动更新</div>
+      <div>http://example.com/2023/10/09/106/</div>
     </div>
     <div class="license-meta">
       
@@ -370,9 +400,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/09/108/" title="让你的 AMD RX580 2048SP 在黑苹果下免驱">
+                      <a href="/2023/10/09/104/" title="群晖数据读取恢复软件 UFS Explorer Professional Recovery 分享">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">让你的 AMD RX580 2048SP 在黑苹果下免驱</span>
+                        <span class="hidden-mobile">群晖数据读取恢复软件 UFS Explorer Professional Recovery 分享</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -380,8 +410,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/09/103/" title="i9-9900KF-Z390UD-RX5700-Monterey-X540-AT2-EFI 分享">
-                        <span class="hidden-mobile">i9-9900KF-Z390UD-RX5700-Monterey-X540-AT2-EFI 分享</span>
+                      <a href="/2023/10/09/107/" title="Hackintosh-12700-B660M-MORTAR-6800XT">
+                        <span class="hidden-mobile">Hackintosh-12700-B660M-MORTAR-6800XT</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
