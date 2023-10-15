@@ -1,0 +1,11 @@
+{
+  "markdown": {
+    "url": "http://192.168.3.230:9999/",
+    "path": "{year}/{month}/{day}_{fullName}",
+    "uploadPath": "/markdown/{year}/{month}/{day}_{fullName}",
+    "host": "192.168.3.230",
+    "port": 21,
+    "username": "markdown",
+    "password": "FUzademima123."
+  }
+}
